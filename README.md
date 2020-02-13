@@ -1,42 +1,61 @@
+# 情人节Demo页
+疫情数据展示页模板，根据 serverless framework 构建。基于该项目[部署 Flask 框架
+](https://github.com/serverless-components/tencent-flask)
+
+&nbsp;
+
+操作步骤：
+
+1. [安装](#1-安装)
+2. [部署](#2-部署)
 
 
-## 直播课程实战步骤参考
+### 1. 安装
 
-部署 Flask 框架
-https://github.com/serverless-components/tencent-flask
-注意：该框架需要在本地安装Python环境，并且保持pip可用。
+首先，通过如下命令安装 [Serverless Framework](https://www.github.com/serverless/serverless):
 
-基于 Flask 模板，为页面增加情人节Demo
-
-## 下载目录和教程文档：
-https://github.com/canmengfly/Serverless-2.13demo
-
-## 具体改动说明：
-
-在使用之前，需要先初始化一个 Flask 项目，然后将 Flask 和 werkzeug 添加到依赖文件 requirements.txt 中，如下：
-```bash
-Flask==1.0.2
-werkzeug==0.16.0
+```console
+$ npm i -g serverless
 ```
 
-## 同时新增服务 app.py，在 app.py 中返回需要的页面：
-```bash
-from flask import Flask, abort, render_template  //引入 render_template
+之后可以新建一个空的文件夹，使用 `create --template-url`，安装相关 template。
 
-app = Flask(__name__,  static_folder='static')
-
-@app.route('/') //首页路由
-def index():
-    return render_template('index.html')
-
-@app.route('/love') //生成页路由
-def love():
-    return render_template('love.html')
-
-if __name__ == '__main__':
-    app.run()
+```console
+$ serverless create --template-url https://github.com/canmengfly/Serverless-2.13demo
 ```
 
-## 相关修改参加 Github 代码，最后运行 sls --debug 即可
+### 2. 部署
 
-Demo预览地址： https://service-lidgnqo9-1251746107.sh.apigw.tencentcs.com/release/
+直接通过 `serverless` 命令来部署应用:
+
+```console
+$ serverless
+```
+
+如果希望查看部署详情，可以通过调试模式的命令 `serverless --debug` 进行部署。
+
+如您的账号未[登陆](https://cloud.tencent.com/login)或[注册](https://cloud.tencent.com/register)腾讯云，您可以直接通过微信扫描命令行中的二维码进行授权登陆和注册。
+
+部署成功后，可以直接在浏览器中访问日志中返回的 url 地址查看效果
+
+&nbsp;
+
+> 注:
+
+腾讯云 Component 已支持二维码一键登录，如您希望使用配置秘钥的方式登录，也可以参考如下步骤：
+   在`nCov-page` 文件夹根目录创建 `.env` 文件
+
+```console
+$ touch .env # 腾讯云的配置信息
+```
+
+在 `.env` 文件中配置腾讯云的 SecretId 和 SecretKey 信息并保存
+如果没有腾讯云账号，可以在此[注册新账号](https://cloud.tencent.com/register)。
+
+如果已有腾讯云账号，可以在[API 密钥管理](https://console.cloud.tencent.com/cam/capi)中获取 `SecretId` 和`SecretKey`
+
+```
+# .env
+TENCENT_SECRET_ID=123
+TENCENT_SECRET_KEY=123
+```
