@@ -1,8 +1,6 @@
 # 情人节Demo页
-疫情数据展示页模板，根据 serverless framework 构建。基于该项目[部署 Flask 框架
+情人节Demo页展示页模板，根据 serverless framework 构建。基于该项目[部署 Flask 框架
 ](https://github.com/serverless-components/tencent-flask)
-
-&nbsp;
 
 操作步骤：
 
