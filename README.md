@@ -19,7 +19,7 @@ $ npm i -g serverless
 之后可以新建一个空的文件夹，使用 `create --template-url`，安装相关 template。
 
 ```console
-$ serverless create --template-url https://github.com/canmengfly/Serverless-2.13demo
+$ git clone https://github.com/canmengfly/Serverless-2.13demo.git
 ```
 
 ### 2. 部署
